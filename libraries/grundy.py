@@ -6,6 +6,6 @@ def my_function(n):
     return result
 
 def run():
-    """Main function to demonstrate profiling."""
+    """Main function to demonstrate latency profiling."""
     n = 10000000
     result = my_function(n)
