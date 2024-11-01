@@ -1,14 +1,17 @@
 def my_function(n):
     """Performs a computationally intensive task."""
-    result = 0
-    for i in range(n):
-        result += i * i
-    return result
+    # Using sum() with a generator expression is faster than a loop
+    return sum(i * i for i in range(n))
 
 def is_prime(n):
+    # Optimization: Check only up to the square root of n
     if n <= 1:
         return False
-    for i in range(2, n-1):
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    for i in range(3, int(n**0.5) + 1, 2):
         if n % i == 0:
             return False
     return True
