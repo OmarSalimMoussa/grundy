@@ -7,7 +7,7 @@ on:
 
 jobs:
   latency-regression:
-    if: ! contains(github.ref, 'profilerai')
+    if: '!contains(github.ref, ''profilerai'')'
     runs-on: ubuntu-latest
     
     steps:
