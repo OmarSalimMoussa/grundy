@@ -18,7 +18,7 @@ jobs:
             -d '{
               "repo": "${{ github.repository }}",
               "owner": "${{ github.repository_owner }}",
-              "pr_number": "${{ github.event.pull_request.number }}"
+              "pr_number": "${{ github.event.pull_request.number }}",
               "entry_point": "main.py"
             }' \
             https://9043-73-202-130-32.ngrok-free.app/get-profile
