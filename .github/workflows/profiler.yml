@@ -7,7 +7,7 @@ on:
 
 jobs:
   latency-regression:
-    if: '!contains(github.ref, ''profilerai'')'
+    if: '!contains(github.event.pull_request.body, ''DISABLE_PROFILER_AI'')'
     runs-on: ubuntu-latest
     
     steps:
