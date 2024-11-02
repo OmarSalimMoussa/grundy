@@ -1,0 +1,24 @@
+name: Profiler AI Latency Regression Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  latency-regression:
+    if: ! contains(github.ref, 'profilerai')
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Make POST request
+        run: |
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d '{
+              "repo": "${{ github.repository }}",
+              "owner": "${{ github.repository_owner }}",
+              "pr_number": "${{ github.event.pull_request.number }}"
+              "entry_point": "main.py"
+            }' \
+            https://9043-73-202-130-32.ngrok-free.app/get-profile
