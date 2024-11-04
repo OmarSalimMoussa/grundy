@@ -1,8 +1,10 @@
 def run():
-    hits = []
-    for i in range(10):
-        for j in range(10):
-            if i > j:
-                hits.append(str(i * j))
-    print(",".join(hits))
+    # Pre-calculate the range to avoid repeated calculations
+    range_10 = range(10)
+    
+    # Use a list comprehension for better performance
+    hits = [str(i * j) for i in range_10 for j in range_10 if i > j]
+    
+    # Join the list directly without creating a temporary string
+    print(','.join(hits))
     return
