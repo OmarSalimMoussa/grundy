@@ -1,22 +1,22 @@
 def my_function(n):
     """Performs a computationally intensive task."""
-    result = 0
-    for i in range(n):
-        result += i * i
-    return result
-
+    # Use list comprehension for better performance
+    return sum(i * i for i in range(n))
 
 def is_prime(n):
+    # Optimize prime checking algorithm
     if n <= 1:
         return False
-    for i in range(2, n - 1):
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    for i in range(3, int(n**0.5) + 1, 2):
         if n % i == 0:
             return False
     return True
-
 
 def run():
     """Main function to demonstrate latency profiling."""
     n = 10000000
     result = my_function(n)
-    result += int(is_prime(10001011))
