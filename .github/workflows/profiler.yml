@@ -21,4 +21,4 @@ jobs:
               "pr_number": "${{ github.event.pull_request.number }}",
               "entry_point": "main.py"
             }' \
-            https://a4a9-73-202-130-32.ngrok-free.app/get-profile
+            https://ea31-104-133-196-217.ngrok-free.app/get-profile
